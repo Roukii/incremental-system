@@ -1,0 +1,17 @@
+:root {
+    --color-palette-dark: #091540;
+    --color-palette-light: #DDDBF1;
+    --color-palette-main: #63768D;
+    --color-palette-succes: #4DAA57;    
+    --color-palette-error: #A8201A;
+}
+
+html {
+    background-color: #091540;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.console-command {
+    font-family: 'Inconsolata', monospace;
+}
