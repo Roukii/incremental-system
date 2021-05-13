@@ -19,7 +19,6 @@ export default class BaseCard extends Component {
                         </div>
                         <div className="card shadow-lg compact side bg-base-100 rounded-box">
                             <p>
-                                {this.props.game.features.settings.saveKey}
                             </p>
                             <table className="">
                                 <thead>
@@ -32,11 +31,6 @@ export default class BaseCard extends Component {
                                 <tbody>
                                     <tr>
                                         <td>Money</td>
-                                        <td>{ this.props.game.features.wallet._multipliers.Experience }</td>
-                                        <td>
-                                            <button onClick={() => this.props.game.features.wallet.setCurrencyMultiplier(4, CurrencyType.Exp)}>-</button>
-                                            <button onClick={() => console.log(this.props.game.features.wallet)}>+</button>
-                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
