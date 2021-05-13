@@ -1,9 +1,10 @@
 import {IgtSettings, IgtWallet} from "incremental-game-template";
-import {incrementalGod} from "./incrementalGod";
+import {IncrementalGod} from "./incrementalGod";
 import { CurrencyType } from "./wallet/CurrencyType";
 
 export class App {
-    static game: incrementalGod;
+    static inProduction: boolean = (process.env.NODE_ENV === "production");
+    static game: IncrementalGod;
 
     static start(): void {
         this.game = this.getDefaultGame();
@@ -12,8 +13,8 @@ export class App {
         this.game.start();
     }
 
-    public static getDefaultGame(): incrementalGod {
-        return new incrementalGod(
+    public static getDefaultGame(): IncrementalGod {
+        return new IncrementalGod(
             {
                 settings: new IgtSettings(),
                 wallet: new IgtWallet([CurrencyType.Exp, CurrencyType.Idea]),
