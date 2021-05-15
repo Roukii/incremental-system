@@ -4,23 +4,32 @@ import { CurrencyType } from "./wallet/CurrencyType";
 
 export class CharacterInfo extends IgtFeature {
     wallet : IgtWallet;
-
-    constructor(wallet: IgtWallet) {
+    sinceLastUpdate = 1;
+    constructor() {
         super('character-info')
-        this.wallet = wallet;
     }
+
+
+
+    initialize(features: IgtFeatures) {
+        super.initialize(features);
+        this.wallet = features.wallet;
+    }
+
     update(delta: number) {
-        this.wallet = new IgtWallet([CurrencyType.Exp]);
-        this.wallet.gainCurrency(new Currency(10, CurrencyType.Exp));
-        console.log(this.wallet)
+        this.sinceLastUpdate -= delta;
+        if (this.sinceLastUpdate < 0) {
+            this.wallet.gainCurrency(new Currency(10, CurrencyType.Idea));
+            console.log(this.wallet)
+            this.sinceLastUpdate = 1;
+        }
     }
 
     load(data: SaveData): void {
-        throw new Error("Method not implemented.");
     }
 
     save(): SaveData {
-        throw new Error("Method not implemented.");
+        return {}
     }
 
 }

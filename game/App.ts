@@ -18,7 +18,8 @@ export class App {
         return new IncrementalGod(
             {
                 settings: new IgtSettings(),
-                wallet: new IgtWallet([CurrencyType.Exp, CurrencyType.Idea])
+                wallet: new IgtWallet([CurrencyType.Exp, CurrencyType.Idea]),
+                characterInfo: new CharacterInfo(),
                 // Add your own features here.  
             }
         );
