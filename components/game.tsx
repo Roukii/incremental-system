@@ -7,24 +7,22 @@ import Settings from "components/settings/settings";
 import React, { Component } from 'react'
 import {CurrencyType} from "game/wallet/CurrencyType";
 
-export default class game extends Component {
-    realGame : IncrementalGod;
+export default class Game extends Component {
+    incremental : IncrementalGod;
 
     constructor(props) {
         super(props);
         App.start();
-        this.realGame = App.game;
-        console.log(this.realGame.features)
+        this.incremental = App.game;
+        console.log(this.incremental.features)
     }
     render() {
-        this.state = {
-            name: "game",
-        };
         return (
             <section className="flex flex-col flex-nowrap items-stretch h-screen">
                 <Header/>
                 <div className="flex-1">
-                    <Canvas/>
+                {this.incremental.features.settings.saveKey}
+                    <Canvas  game={this.incremental}/>
                 </div>
                 <Settings/>
                 <SystemCommand/>

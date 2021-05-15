@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { IncrementalGod } from 'game/IncrementalGod';
 import { CurrencyType } from 'game/wallet/CurrencyType';
 
-export class Canvas extends Component<{ game: IncrementalGod}, { game: IncrementalGod }> {
-    game : IncrementalGod;
+export class Wallet extends Component<{ game: IncrementalGod}, { game: IncrementalGod }> {
+game : IncrementalGod;
     constructor(props) {
         super(props);
         this.game = props.game;
@@ -22,10 +22,8 @@ export class Canvas extends Component<{ game: IncrementalGod}, { game: Increment
                     <h2 className="card-title">
                         Character Sheet
                     </h2>
-                    <p>{this.props.game.features.wallet.getAmount(CurrencyType.Idea)} {CurrencyType.Idea}</p>
-                    <p>{this.props.game.features.wallet.getAmount(CurrencyType.Exp)} {CurrencyType.Exp}</p>
-                    <p>{console.log(this.game)}</p>
-                    <p>{this.props.game.features.settings.saveKey}</p>
+                    <p>{this.props.game.features.wallet.getAmount(CurrencyType.Idea)} {CurrencyType.Idea.toString}</p>
+                    <p>{this.props.game.features.wallet.getAmount(CurrencyType.Exp)} exp</p>
                     </div>
                 </div>
                 <div className="flex-none w-40 card bordered bg-base-100">

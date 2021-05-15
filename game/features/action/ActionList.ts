@@ -1,4 +1,4 @@
-import IgtFeature  from "incremental-game-template";
+import IgtFeature, IgtWallet  from "incremental-game-template";
 
 export class ActionList extends IgtFeature {
     _features = undefined as unknown as Features

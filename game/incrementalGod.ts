@@ -1,12 +1,12 @@
 import {IgtGame} from "incremental-game-template";
-import {IgtFeatures} from "incremental-game-template";
+import {Features} from "game/Features";
 
 export class IncrementalGod extends IgtGame {
     protected readonly SAVE_KEY: string = 'incremental-system';
     protected readonly TICK_DURATION: number = 0.01;
-    features: IgtFeatures;
+    features: Features;
 
-    constructor(features: IgtFeatures) {
+    constructor(features: Features) {
         super();
         this.features = features;
     }

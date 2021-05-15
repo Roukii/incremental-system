@@ -1,5 +1,6 @@
 import {IgtSettings, IgtWallet} from "incremental-game-template";
-import {IncrementalGod} from "./incrementalGod";
+import { CharacterInfo } from "./CharacterInfo";
+import {IncrementalGod} from "./IncrementalGod";
 import { CurrencyType } from "./wallet/CurrencyType";
 
 export class App {
@@ -17,8 +18,8 @@ export class App {
         return new IncrementalGod(
             {
                 settings: new IgtSettings(),
-                wallet: new IgtWallet([CurrencyType.Exp, CurrencyType.Idea]),
-                // Add your own features here.
+                wallet: new IgtWallet([CurrencyType.Exp, CurrencyType.Idea])
+                // Add your own features here.  
             }
         );
     }
