@@ -20,7 +20,6 @@ export class CharacterInfo extends IgtFeature {
         this.sinceLastUpdate -= delta;
         if (this.sinceLastUpdate < 0) {
             this.wallet.gainCurrency(new Currency(10, CurrencyType.Idea));
-            console.log(this.wallet)
             this.sinceLastUpdate = 1;
         }
     }
