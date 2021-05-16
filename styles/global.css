@@ -1,3 +1,15 @@
 html {
     @apply bg-base-300
 }
+
+.countdown-hour {
+    --value:10;
+}
+
+.countdown-min {
+    --value:24;
+}
+
+.countdown-sec {
+    --value:60;
+}

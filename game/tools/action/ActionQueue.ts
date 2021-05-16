@@ -85,8 +85,11 @@ export class ActionQueue extends IgtFeature {
             return;
         }
 
-        action.onCompletion.subscribe((action) => {
+        action.onCompletion.subscribe((action: IgtAction) => {
             this._onActionCompletion.dispatch(action);
+            console.log("repeat time left" + action.repeat)
+            if (action.repeat === 0)
+                this.removeFirstAction();
         })
 
         this.actionQueue.push(action);

@@ -10,7 +10,7 @@ export class GainItemAction extends IgtAction {
     _itemQuantity: number;
 
     constructor(itemId: ItemId, description: string, duration: number, inventory: IgtInventory, itemList: ItemList, itemQuantity = 1, requirement: Requirement = new NoRequirement()) {
-        super(description, duration);
+        super(description, duration, 0);
         this.itemId = itemId;
         this._itemQuantity = itemQuantity;
         this._inventory = inventory;

@@ -27,7 +27,6 @@ export class ActionList extends IgtFeature {
     get grabStone(): GainItemAction {
         if (this._grabStone?.isStarted === undefined)
         {
-            console.log("create grab stone");
             this._grabStone = new GainItemAction(ItemId.Stone, "Grab Stone", 3, this._features.inventory, this._features.itemList);
         }
         return this._grabStone

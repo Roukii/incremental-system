@@ -13,7 +13,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "daisyui": "^0.26.0",
+    "daisyui": "^0.28.0",
     "incremental-game-template": "^1.0.1",
     "next": "^10.0.0",
     "next-themes": "^0.0.14",

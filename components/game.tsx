@@ -21,7 +21,7 @@ export default class Game extends Component {
             <section className="flex flex-col flex-nowrap items-stretch h-screen">
                 <Header/>
                 <div className="flex-1">
-                    <Canvas  gameProps={this.incremental}/>
+                    <Canvas gameProps={this.incremental}/>
                 </div>
                 <Settings/>
                 <SystemCommand/>

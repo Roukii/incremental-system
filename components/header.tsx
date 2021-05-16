@@ -23,6 +23,15 @@ export default class Header extends Component {
                     <div className="font-mono text-xs opacity-50">
                         <span className="hidden lg:inline">version</span>&nbsp;0.26.0
                     </div>
+                    <div>
+                        <span className="font-mono text-2xl countdown">
+                            <span className="countdown-hour"></span>h
+                                
+                            <span className="countdown-min"></span>m
+                                
+                            <span className="countdown-sec"></span>s
+                        </span>
+                    </div>
                     <div className="flex-1 px-2 mx-2">
                         <div className="items-stretch hidden lg:flex">
                             <a className="btn btn-ghost btn-sm rounded-btn">

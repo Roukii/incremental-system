@@ -12,6 +12,6 @@ export class Stone extends AbstractConsumable {
         throw new Error("Method not implemented.");
     }
     constructor() {
-        super('Stone', "Might be useful", ItemId.Stone, ItemType.Default);
+        super('Stone', "Might be useful", ItemId.Stone, ItemType.Consumable);
     }
 }
