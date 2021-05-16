@@ -2,19 +2,26 @@ import React, { Component, useState } from 'react'
 import PropTypes from 'prop-types'
 import { IncrementalGod } from 'game/IncrementalGod';
 import { CurrencyType } from 'game/wallet/CurrencyType';
+import { Currency } from 'incremental-game-template';
 
-export class Canvas extends Component<{ game: IncrementalGod}, { game: IncrementalGod }> {
+export class Canvas extends Component<{ gameProps: IncrementalGod}, { game: IncrementalGod, exp: number }> {
     game : IncrementalGod;
+
     constructor(props) {
         super(props);
-        this.game = props.game;
+        this.game = props.gameProps;
         this.state = {
-            game: props.game
+            game: props.gameProps,
+            exp: 0,
         }
         console.log(props);
+        this.game.features.wallet.onCurrencyGain.subscribe ((currency: Currency) =>
+            this.setState({exp: this.game.features.wallet.getAmount(currency.type)})
+        );
     }
 
     render() {
+
         return (
             <div className="flex flex-row flex-nowrap items-stretch p-2 space-x-2 h-full">
                 <div className="flex-none w-80 card bordered bg-base-100">
@@ -22,10 +29,9 @@ export class Canvas extends Component<{ game: IncrementalGod}, { game: Increment
                     <h2 className="card-title">
                         Character Sheet
                     </h2>
-                    <p>{this.props.game.features.wallet.getAmount(CurrencyType.Idea)} {CurrencyType.Idea}</p>
-                    <p>{this.props.game.features.wallet.getAmount(CurrencyType.Exp)} {CurrencyType.Exp}</p>
-                    <p>{console.log(this.game)}</p>
-                    <p>{this.props.game.features.settings.saveKey}</p>
+                    <p>{this.state.game.features.wallet.getAmount(CurrencyType.Idea)} {CurrencyType.Idea}</p>
+                    <p>{this.state.exp} {CurrencyType.Exp}</p>
+                    <p>{this.state.game.features.settings.saveKey}</p>
                     </div>
                 </div>
                 <div className="flex-none w-40 card bordered bg-base-100">
