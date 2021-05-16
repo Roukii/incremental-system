@@ -1,5 +1,3 @@
-import { CharacteristicId } from "./CharacteristicId";
-
 export abstract class ICharacteristic {
     protected value: number;
     protected limit: number;

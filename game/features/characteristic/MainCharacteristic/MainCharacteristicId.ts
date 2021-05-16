@@ -1,4 +1,4 @@
-export enum CharacteristicId {
+export enum MainCharacteristicId {
     Strength = 'strength',
     Endurance = 'endurance',
     Vitality = 'vitality',

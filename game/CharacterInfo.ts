@@ -1,17 +1,17 @@
 import {Currency, IgtFeature, IgtFeatures, SaveData, IgtWallet} from "incremental-game-template";
-import { CharacteristicsInfo } from "./features/characteristic/CharacteristicsInfo";
+import { MainCharacteristicsInfo } from "./features/characteristic/MainCharacteristic/MainCharacteristicsInfo";
+import { FightCharacteristicsInfo } from "./features/characteristic/FightCharacteristic/FightCharacteristicsInfo";
 import { CurrencyType } from "./wallet/CurrencyType";
 
 
 export class CharacterInfo extends IgtFeature {
     wallet : IgtWallet;
     sinceLastUpdate = 1;
-    characteristics: CharacteristicsInfo;
+    mainCharacteristics: MainCharacteristicsInfo;
+    fightCharacteristics: FightCharacteristicsInfo;
     constructor() {
         super('character-info')
     }
-
-
 
     initialize(features: IgtFeatures) {
         super.initialize(features);
