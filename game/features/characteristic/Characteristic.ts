@@ -1,31 +1,15 @@
 import { CharacteristicId } from "./CharacteristicId";
+import { ICharacteristic } from "./ICharacteristic";
 
-export class Characteristic {
+export class Characteristic extends ICharacteristic {
     public id: CharacteristicId;
-    private value: number;
-
-    constructor(givenId: CharacteristicId, givenValue: number = 0) {
+    
+    constructor(givenId: CharacteristicId, givenValue: number = 0, limit: number = 0) {
+        super(givenValue, limit);
         this.id = givenId;
-        this.value = givenValue;
-    }
-
-    public Get() {
-        return this.value;
-    }
-
-    public Set(val: number) {
-        this.value = val;
-    }
-
-    public Add(val: number) {
-        this.value += val;
-    }
-
-    public Remove(val: number) {
-        this.value -= val;
     }
 
     public Log() {
-        console.log(CharacteristicId, ": ", this.value);
+        console.log(this.id, ": ", this.value);
     }
 }   
