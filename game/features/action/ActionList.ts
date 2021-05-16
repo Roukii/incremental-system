@@ -1,19 +1,20 @@
-import IgtFeature, IgtWallet  from "incremental-game-template";
+import {IgtFeature, IgtFeatures, IgtWallet} from "incremental-game-template";
+import { ActionId } from "./ActionId";
 
 export class ActionList extends IgtFeature {
-    _features = undefined as unknown as Features
+    _features = undefined as unknown as IgtFeatures
 
     constructor() {
         super('action-list');
     }
 
 
-    initialize(features: Features) {
+    initialize(features: IgtFeatures) {
         super.initialize(features);
         this._features = features;
     }
 
-    get mineStone(): SkillAction {
+    get rest(): SkillAction {
         return new SkillAction(ActionId.MineStone, "Mine Stone", 3,
             'fa-gem', this._features.skills, this._features.inventory, this._features.itemList,
             [], [new ItemAmount(ItemId.Stone)], [new Experience(4, SkillId.Mining)]);
