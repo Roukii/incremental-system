@@ -1,20 +1,24 @@
-import {IgtAction, IgtInventory, IgtItemList, Requirement, NoRequirement} from "incremental-game-template";
+import { ItemId } from "game/features/items/ItemId";
+import { ItemList } from "game/features/items/ItemList";
+import {IgtAction, IgtInventory, Requirement, NoRequirement} from "incremental-game-template";
 
 export class GainItemAction extends IgtAction {
     itemId: ItemId;
 
     _inventory: IgtInventory;
-    _itemList: IgtItemList;
+    _itemList: ItemList;
     _itemQuantity: number;
 
-    constructor(itemId: ItemId, description: string, duration: number, inventory: IgtInventory, itemList: IgtItemList, itemQuatity = 1, requirement: Requirement = new NoRequirement()) {
-        super(description, duration, 0, requirement);
+    constructor(itemId: ItemId, description: string, duration: number, inventory: IgtInventory, itemList: ItemList, itemQuantity = 1, requirement: Requirement = new NoRequirement()) {
+        super(description, duration);
         this.itemId = itemId;
+        this._itemQuantity = itemQuantity;
         this._inventory = inventory;
         this._itemList = itemList;
     }
 
-    gainReward(): boolean {
+    public gainReward(): boolean {
+        console.log(this._inventory)
         this._inventory.gainItem(this._itemList[this.itemId], this._itemQuantity);
         return true;
     }

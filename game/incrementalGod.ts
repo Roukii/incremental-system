@@ -1,5 +1,5 @@
 import {IgtGame} from "incremental-game-template";
-import {Features} from "game/Features";
+import { Features } from "game/Features";
 
 export class IncrementalGod extends IgtGame {
     protected readonly SAVE_KEY: string = 'incremental-system';

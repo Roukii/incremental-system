@@ -2,11 +2,15 @@ import React, { Component, useState } from 'react'
 import PropTypes from 'prop-types'
 import { IncrementalGod } from 'game/IncrementalGod';
 import { CurrencyType } from 'game/wallet/CurrencyType';
-import { Currency } from 'incremental-game-template';
+import { Currency, IgtAction } from 'incremental-game-template';
+import { GainItemAction } from 'game/tools/action/GainItemAction';
+import { ItemList } from 'game/features/items/ItemList';
+import { ItemId } from 'game/features/items/ItemId';
 
 export class Canvas extends Component<{ gameProps: IncrementalGod}, { game: IncrementalGod, exp: number }> {
     game : IncrementalGod;
-
+    grabStone: GainItemAction;
+    
     constructor(props) {
         super(props);
         this.game = props.gameProps;
@@ -18,8 +22,16 @@ export class Canvas extends Component<{ gameProps: IncrementalGod}, { game: Incr
         this.game.features.wallet.onCurrencyGain.subscribe ((currency: Currency) =>
             this.setState({exp: this.game.features.wallet.getAmount(currency.type)})
         );
+        this.grabStone = this.game.features.actions.grabStone
     }
 
+    onClickTest() {
+        this.game.features.actionsQueue.addAction(this.grabStone)
+        console.log(this.grabStone.isStarted)
+        this.grabStone.onCompletion.subscribe ((action: IgtAction) =>
+            console.log("stone grabed")
+        );        
+    }
     render() {
 
         return (
@@ -39,13 +51,17 @@ export class Canvas extends Component<{ gameProps: IncrementalGod}, { game: Incr
                         <h2 className="card-title">
                             Action
                         </h2>
+                        <p>{ this.game.features.wallet.getAmount(CurrencyType.Stone)} Stone</p>
+                        <button className="btn" onClick={() => { this.onClickTest() }}>Grab Stone {this.grabStone.getProgress().actual} / {this.grabStone.getProgress().target}</button>
                     </div>
                 </div>
                 <div className="flex-grow w-40 card bordered bg-base-100">
                     <div className="card-body">
                     <h2 className="card-title">
-                        No clue what is it going to be
+                        Inventory
                     </h2>
+                    <p>{this.game.features.inventory.slots.length}</p>
+                    <p>{this.game.features.wallet.getAmount(CurrencyType.Stone)}</p>
                     </div>
                 </div>
             </div>
