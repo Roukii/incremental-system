@@ -3,7 +3,6 @@ import { MainCharacteristicsInfo } from "./features/characteristic/MainCharacter
 import { FightCharacteristicsInfo } from "./features/characteristic/FightCharacteristic/FightCharacteristicsInfo";
 import { CurrencyType } from "./wallet/CurrencyType";
 
-
 export class CharacterInfo extends IgtFeature {
     wallet : IgtWallet;
     sinceLastUpdate = 1;
