@@ -1,5 +1,5 @@
 import { MainCharacteristic } from "./MainCharacteristic";
-import { MainCharacteristicId } from "./CharacteristicId";
+import { MainCharacteristicId } from "./MainCharacteristicId";
 import { MainCharacteristicsSaveData } from "./MainCharacteristicsSaveData"
 
 export class MainCharacteristicsInfo {
@@ -46,6 +46,12 @@ export class MainCharacteristicsInfo {
 
     reduceCharacteristic(id: MainCharacteristicId, value: number) {
         this.getCharacteristic(id).Reduce(value);
+    }
+
+    getAmount(id: MainCharacteristicId) {
+        return this.characteristics.find(characteristic => {
+            return characteristic.id === id;
+        }).Get();
     }
 
     load(data: MainCharacteristicsSaveData): void {

@@ -1,10 +1,10 @@
 
 import {SaveData} from "incremental-game-template";
-import { CharacteristicId } from "./CharacteristicId";
+import { FightCharacteristicId } from "./FightCharacteristicId";
 
-export interface CharacteristicsSaveData extends SaveData {
+export interface FightCharacteristicsSaveData extends SaveData {
     characteristics: {
-        id: CharacteristicId;
+        id: FightCharacteristicId;
         value: number;
     }[];
 }

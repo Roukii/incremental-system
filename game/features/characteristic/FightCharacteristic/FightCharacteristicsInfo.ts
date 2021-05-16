@@ -67,6 +67,12 @@ export class FightCharacteristicsInfo {
         this.getCharacteristic(id).Reduce(value);
     }
 
+    getAmount(id: FightCharacteristicId) {
+        return this.fightCharacteristics.find(characteristic => {
+            return characteristic.id === id;
+        }).Get();
+    }
+
     load(data: FightCharacteristicsSaveData): void {
         if (data.characteristics) {
             data.characteristics.forEach(savedCharacteristic => {

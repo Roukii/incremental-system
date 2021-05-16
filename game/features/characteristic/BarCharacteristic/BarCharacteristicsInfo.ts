@@ -1,6 +1,6 @@
 import { BarCharacteristic } from "./BarCharacteristic";
 import { BarCharacteristicId } from "./BarCharacteristicId";
-import { BarCharacteristicsSaveData } from "./MainCharacteristicsSaveData"
+import { BarCharacteristicsSaveData } from "./BarCharacteristicsSaveData"
 
 export class BarCharacteristicsInfo {
     barCharacteristics: BarCharacteristic[];
@@ -38,6 +38,12 @@ export class BarCharacteristicsInfo {
 
     reduceCharacteristic(id: BarCharacteristicId, value: number) {
         this.getCharacteristic(id).Reduce(value);
+    }
+
+    getAmount(id: BarCharacteristicId) {
+        return this.barCharacteristics.find(characteristic => {
+            return characteristic.id === id;
+        }).Get();
     }
 
     load(data: BarCharacteristicsSaveData): void {

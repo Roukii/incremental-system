@@ -1,4 +1,4 @@
-import { MainCharacteristicId } from "./BarCharacteristicId";
+import { BarCharacteristicId } from "./BarCharacteristicId";
 import { ICharacteristic } from "../ICharacteristic";
 
 export class BarCharacteristic extends ICharacteristic {

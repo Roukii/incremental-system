@@ -1,5 +1,5 @@
-import { FightCharacteristicId } from "../fightCharacteristics/FightCharacteristicId";
-import { ICharacteristic } from "./ICharacteristic";
+import { FightCharacteristicId } from "./FightCharacteristicId";
+import { ICharacteristic } from "../ICharacteristic";
 
 export class FightCharacteristic extends ICharacteristic {
     public id: FightCharacteristicId;

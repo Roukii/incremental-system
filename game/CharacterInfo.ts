@@ -19,6 +19,9 @@ export class CharacterInfo extends IgtFeature {
     initialize(features: Features) {
         super.initialize(features);
         this.wallet = features.wallet;
+        this.mainCharacteristics = new MainCharacteristicsInfo;
+        this.fightCharacteristics = new FightCharacteristicsInfo;
+        this.barCharacteristics = new BarCharacteristicsInfo;
     }
 
     update(delta: number) {
